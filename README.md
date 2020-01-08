@@ -1,2 +1,2 @@
 # flight-tests
-slow process
+slow process :(
