@@ -107,7 +107,7 @@ def run_shared_sequence(scf, drone_params):
     box_size = .8
     flight_time = 3
     
-#    count = 0
+    count = 0
     
     commander = scf.cf.high_level_commander
 
@@ -138,19 +138,19 @@ def run_shared_sequence(scf, drone_params):
     
     print("starting loop sequence")
 
-    for i in range(len(x_points)): 
+    #for i in range(len(x_points)): 
 
-    #while count <= len(x_points)+1: 
-     #   if count == len(x_points):
-      #      print("break out of loop sequence")
-       #     break
+    while count <= len(x_points)+1: 
+        if count == len(x_points):
+            print("break out of loop sequence")
+            break
            
-        commander.go_to(drone_params["shape_x"][i], "shape_y"][i], "shape_z"][i], 0, 3, relative=True)
+        commander.go_to(drone_params["shape_x"][count], drone_params["shape_y"][count], drone_params["shape_z"][count], 0, 3, relative=True)
         scf.cf.param.set_value('ring.effect', 7)
         scf.cf.param.set_value('ring.solidBlue', drone_params['b'])
         scf.cf.param.set_value('ring.solidRed', drone_params['r'])
         scf.cf.param.set_value('ring.headlightEnable', 1)
-        #count += 1
+        count += 1
         time.sleep(3)
         
     print("finished loop sequence")
@@ -166,13 +166,12 @@ def run_shared_sequence(scf, drone_params):
 
 
 
-
 URI0 = 'radio://0/80/2M/E7E7E7E705'
 URI1 = 'radio://0/80/2M/E7E7E7E706'
 
 x_points1 = [0,0,0,0,0,0,0]
-y_points1 = [-0.8,-0.5,-0.2,0,0.2,0.5,0.8]
-z_points1 = [1,0.8,0.5,0,0.5,0.8,1]
+y_points1 = [-0.8,0.5,0.2,0.1,0.1,0.2,0.5]
+z_points1 = [1,-0.5,-0.3,-0.2,-0.2,-0.3,-0.5]
   
 
 
